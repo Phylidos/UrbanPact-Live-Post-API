@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanPact</title>
+    <!-- Google Fonts for styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Header -->
+        <nav class="navbar">
+            <div class="menu-icon"><i class="fa-solid fa-bars"></i></div>
+            <div class="logo">
+                <i class="fa-solid fa-city" style="color: #4ade80;"></i>
+                <span>UrbanPact</span>
+            </div>
+            <div class="profile-pic">
+                <img src="https://i.pravatar.cc/150?img=11" alt="Profile">
+            </div>
+        </nav>
+
+        <!-- Greeting -->
+        <header class="greeting">
+            <h1>Welcome back , Daniel !</h1>
+        </header>
+
+        <!-- Section 1: Nearby Events (Static) -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Nearby Events</h2>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+            <div class="card-grid">
+                <!-- Event Card 1 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1000&auto=format&fit=crop" alt="Workshop">
+                    </div>
+                    <div class="card-content">
+                        <h3>Vision 2040 Workshop</h3>
+                        <div class="card-footer">
+                            <div class="info-text">
+                                <p>Date : Sat, March 16th</p>
+                                <p>Venue: Riverbend Park</p>
+                            </div>
+                            <button class="rsvp-btn">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Card 2 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?q=80&w=1000&auto=format&fit=crop" alt="Cleanup">
+                    </div>
+                    <div class="card-content">
+                        <h3>River Cleanup Drive</h3>
+                        <div class="card-footer">
+                            <div class="info-text">
+                                <p>Date : Sun, July 25th</p>
+                                <p>Venue: Pavillion Park</p>
+                            </div>
+                            <button class="rsvp-btn">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Latest Post (Dynamic API) -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Latest Post</h2>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+
+            <!-- This container will be filled by JavaScript -->
+            <div id="news-container" class="card-grid">
+                <p class="loading-text">Loading latest news...</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
