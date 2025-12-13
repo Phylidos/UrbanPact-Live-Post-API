@@ -1,16 +1,12 @@
 :root {
-    --bg-color: #f7fff4; /* Pale mint background */
-    --card-bg: #DDF5E2;  /* Slightly darker green for cards */
+    --bg-color: #F6FFF8;
+    --card-bg: #DDF5E2;
     --text-color: #0d1b1e;
     --btn-color: #74C67A;
     --font-main: 'Inter', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--bg-color);
@@ -22,158 +18,71 @@ body {
 
 .app-container {
     width: 100%;
-    max-width: 480px; /* Simulates mobile screen */
+    max-width: 480px;
     background-color: var(--bg-color);
     min-height: 100vh;
     padding: 20px;
 }
 
 /* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0 30px 0;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.profile-pic img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Greeting */
-.greeting h1 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    line-height: 1.3;
-}
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 0 20px 0; }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 1.2rem; }
+.profile-pic img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.greeting h1 { font-size: 26px; font-weight: 700; margin-bottom: 20px; }
 
 /* Section Headers */
-.section {
-    margin-bottom: 30px;
+.section { margin-bottom: 30px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.section-header h2 { font-size: 20px; font-weight: 700; }
+
+/* Cards & Grid */
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.card { background-color: var(--card-bg); border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; }
+
+/* Image Cards */
+.card-image { height: 110px; width: 100%; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+.card-content { padding: 12px; display: flex; flex-direction: column; gap: 5px; }
+.card-content h3 { font-size: 14px; font-weight: 700; line-height: 1.2; }
+.card-footer { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 5px; }
+.info-text p { font-size: 10px; color: #444; }
+.rsvp-btn, .read-btn, .speak-btn { background-color: var(--btn-color); color: white; border: none; padding: 6px 12px; border-radius: 12px; font-size: 10px; font-weight: 700; cursor: pointer; }
+
+/* --- AIR QUALITY CARD --- */
+.aqi-card { padding: 15px; }
+.aqi-content { display: flex; align-items: center; gap: 15px; }
+.chart-wrapper { position: relative; height: 80px; width: 80px; flex-shrink: 0; }
+.aqi-details h3 { font-size: 16px; font-weight: 700; }
+.aqi-desc { font-size: 12px; color: #555; margin-bottom: 8px; }
+.speak-btn { display: flex; align-items: center; gap: 5px; padding: 8px 12px; }
+
+/* --- VIDEO CARD (YouTube Version) --- */
+.video-card { 
+    padding: 0; 
+    overflow: hidden; /* Ensures corners stay rounded */
 }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.video-wrapper { 
+    position: relative;
+    width: 100%; 
+    /* This 56.25% padding creates a perfect 16:9 Aspect Ratio */
+    padding-bottom: 56.25%; 
+    height: 0; 
+    background: #000;
 }
 
-.section-header h2 {
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.section-header i {
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* Cards Grid */
-.card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 15px;
-}
-
-/* Card Styling */
-.card {
-    background-color: var(--card-bg);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.card-image {
-    height: 120px;
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-}
-
-.card-image img {
-    width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* No border radius needed here if the card has overflow: hidden */
 }
 
-.card-content {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-}
-
-.card-content h3 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    line-height: 1.2;
-    /* Limit title to 3 lines */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: auto;
-}
-
-.info-text p {
-    font-size: 10px;
-    color: #444;
-    margin-bottom: 2px;
-    line-height: 1.2;
-}
-
-.rsvp-btn, .read-btn {
-    background-color: var(--btn-color);
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 12px;
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.loading-text {
-    grid-column: span 2;
-    text-align: center;
-    color: #666;
-    font-size: 14px;
-}
-
-/* Responsive fix for very small screens */
-@media (max-width: 350px) {
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
+.video-desc {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 5px;
+    line-height: 1.4;
 }

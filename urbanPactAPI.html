@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UrbanPact</title>
-    <!-- Google Fonts for styling -->
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,47 +25,70 @@
             </div>
         </nav>
 
-        <!-- Greeting -->
         <header class="greeting">
             <h1>Welcome back , Daniel !</h1>
         </header>
 
-        <!-- Section 1: Nearby Events (Static) -->
+        <!-- SECTION 1: Community Highlight (YouTube) -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Community Highlight</h2>
+            </div>
+            
+            <div class="card video-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/ViJIJh-BNq8" 
+                        title="YouTube video player"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="card-content">
+                    <h3>🚴 Eco-Cycling Marathon</h3>
+                    <p class="video-desc">
+                        Watch the recap of yesterday's community cycling event.
+                    </p>
+                    <button id="speakBtnVideo" class="speak-btn" style="margin-top: 10px;">
+                        <i class="fa-solid fa-volume-high"></i> Hear Description
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Nearby Events -->
         <section class="section">
             <div class="section-header">
                 <h2>Nearby Events</h2>
                 <i class="fa-solid fa-arrow-right"></i>
             </div>
-
             <div class="card-grid">
-                <!-- Event Card 1 -->
                 <div class="card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=1000&auto=format&fit=crop" alt="Workshop">
+                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=600" alt="Workshop">
                     </div>
                     <div class="card-content">
                         <h3>Vision 2040 Workshop</h3>
                         <div class="card-footer">
                             <div class="info-text">
                                 <p>Date : Sat, March 16th</p>
-                                <p>Venue: Riverbend Park</p>
                             </div>
                             <button class="rsvp-btn">RSVP</button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Event Card 2 -->
                 <div class="card">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?q=80&w=1000&auto=format&fit=crop" alt="Cleanup">
+                        <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?q=80&w=600" alt="Cleanup">
                     </div>
                     <div class="card-content">
                         <h3>River Cleanup Drive</h3>
                         <div class="card-footer">
                             <div class="info-text">
                                 <p>Date : Sun, July 25th</p>
-                                <p>Venue: Pavillion Park</p>
                             </div>
                             <button class="rsvp-btn">RSVP</button>
                         </div>
@@ -75,14 +97,12 @@
             </div>
         </section>
 
-        <!-- Section 2: Latest Post (Dynamic API) -->
+        <!-- SECTION 3: Latest News (NewsData API) -->
         <section class="section">
             <div class="section-header">
-                <h2>Latest Post</h2>
+                <h2>Latest News</h2>
                 <i class="fa-solid fa-arrow-right"></i>
             </div>
-
-            <!-- This container will be filled by JavaScript -->
             <div id="news-container" class="card-grid">
                 <p class="loading-text">Loading latest news...</p>
             </div>
