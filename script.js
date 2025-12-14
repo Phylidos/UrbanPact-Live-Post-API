@@ -3,9 +3,7 @@ const NEWS_API_KEY = 'pub_397edcb634954d01aeee0314fcadcadc';
 const NEWS_API_URL = `https://newsdata.io/api/1/news?apikey=${NEWS_API_KEY}&q=environment&language=en`;
 
 
-// ==========================================
 // 1. VIDEO CARD LOGIC (AUDIO DESCRIPTION)
-// ==========================================
 const speakBtnVideo = document.getElementById('speakBtnVideo');
 
 if (speakBtnVideo) {
@@ -15,7 +13,7 @@ if (speakBtnVideo) {
             const text = "Watch the recap of yesterday's community cycling event.";
             const utterance = new SpeechSynthesisUtterance(text);
             
-            // Optional: Adjust voice speed/pitch
+            // Adjust voice speed/pitch
             utterance.rate = 1; 
             utterance.pitch = 1;
 
@@ -27,9 +25,7 @@ if (speakBtnVideo) {
 }
 
 
-// ==========================================
 // 2. NEWS API LOGIC (NewsData.io)
-// ==========================================
 const newsContainer = document.getElementById('news-container');
 
 async function fetchNews() {
@@ -45,7 +41,7 @@ async function fetchNews() {
         }
     } catch (error) {
         console.error('Error fetching news:', error);
-        // If API fails (or no key), show fake data so UI looks good
+        // If API fails (or no key), show fake data for demo purposes
         renderFallbackContent(); 
     }
 }
@@ -57,7 +53,6 @@ function renderNews(articles) {
     const articlesToShow = articles.slice(0, 2);
 
     articlesToShow.forEach(article => {
-        // Use a placeholder if the article has no image
         const imageUrl = article.image_url ? article.image_url : 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600';
         
         const cardHTML = `
@@ -82,7 +77,7 @@ function renderNews(articles) {
     });
 }
 
-// Fallback content (Fake news cards)
+// In case when API fails, show fallback content
 function renderFallbackContent() {
     newsContainer.innerHTML = `
         <div class="card">
